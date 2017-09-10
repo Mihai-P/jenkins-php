@@ -35,4 +35,4 @@ services:
 
 ## Docker4Drupal
 
-A sample setup using [docker4drupal])(https://github.com/wodby/docker4drupal) included.
+A sample setup using [docker4drupal](https://github.com/wodby/docker4drupal) included.
