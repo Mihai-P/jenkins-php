@@ -7,7 +7,7 @@ RUN apt-get update && \
   php-json php-curl php-mysqlnd \
   php-xdebug php-intl php-mcrypt php-pear \
   curl git ant php-mbstring \
-  apt-get clean -y
+ && apt-get clean -y
 
 # Create a Jenkins "HOME" for composer files.
 RUN mkdir -p /home/jenkins/composer
