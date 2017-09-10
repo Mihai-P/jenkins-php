@@ -44,3 +44,9 @@ RUN   ln -s /home/jenkins/composer/vendor/bin/pdepend /usr/local/bin/pdepend; \
 
 # Go back to jenkins user.
 USER jenkins
+
+RUN /usr/local/bin/install-plugins.sh slack junit
+
+RUN composer --working-dir="/home/jenkins/composer" require wp-coding-standards/wpcs:dev-master
+
+RUN phpcs --config-set installed_paths /home/jenkins/composer/vendor/drupal/coder/coder_sniffer,installed_paths /home/jenkins/composer/vendor/wp-coding-standards/wpcs
