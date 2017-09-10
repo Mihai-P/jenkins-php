@@ -1,6 +1,6 @@
 # Jenkins PHP
 
-PHP 7 testing based on [jenkins/jenkins:lts](https://hub.docker.com/r/jenkins/jenkins/)
+PHP 7 testing based on the official Jenkins Docker image [jenkins/jenkins:lts](https://hub.docker.com/r/jenkins/jenkins/)
 
 This is a Durpal/php test suite for building jobs in Jenkins.
 
@@ -13,7 +13,7 @@ This is a Durpal/php test suite for building jobs in Jenkins.
 - phpmd
 - phpunit
 
-## docker-compose
+## docker-compose.yml
 
 ```
 version: "2"
@@ -32,3 +32,7 @@ services:
 #      - 'traefik.port=8888'
 #      - 'traefik.frontend.rule=Host:jenkins.drupal.docker.localhost'
 ```
+
+## Docker4Drupal
+
+A sample setup using [docker4drupal])(https://github.com/wodby/docker4drupal) included.

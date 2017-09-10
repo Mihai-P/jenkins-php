@@ -1,0 +1,12 @@
+version: "2"
+
+options:
+  verbose: true
+syncs:
+  jenkins-sync: # tip: add -sync and you keep consistent names as a convention
+    src: 'jenkins_home'
+    sync_userid: '1000'
+  jenkinsdrupal-sync: # tip: add -sync and you keep consistent names as a convention
+    src: './'
+    sync_userid: '82'
+    sync_excludes: ['.gitignore', '.git/', '.idea/']
