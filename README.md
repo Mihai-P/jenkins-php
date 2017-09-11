@@ -10,9 +10,9 @@ This is a Durpal/php test suite for building jobs in Jenkins.
 - phpcpd
 - phpcs
     + Drupal coder
-    + `phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile,theme,css,info,txt,md'`
+    + `phpcs --standard=Drupal --extensions='php,module,inc,install,test,profile'`
     + Wordpress Coding Standards
-    + `phpcs --standard=Wordpress`
+    + `phpcs --standard=Wordpress --extensions='php,module,inc,install,test,profile'`
 - phploc
 - phpmd
 - phpunit
