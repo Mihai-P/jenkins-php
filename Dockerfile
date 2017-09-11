@@ -20,17 +20,17 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 USER jenkins
 
 # install Jenkins plugins
-RUN /usr/local/bin/install-plugins.sh checkstyle cloverphp crap4j dry htmlpublisher jdepend plot pmd violations warnings xunit
+RUN /usr/local/bin/install-plugins.sh checkstyle cloverphp crap4j dry htmlpublisher jdepend plot pmd violations warnings xunit slack junit
 RUN /usr/local/bin/install-plugins.sh git-client scm-api git bitbucket publish-over-ssh htmlpublisher workflow-aggregator ansicolor lockable-resources pipeline-milestone-step
 
 # Install required php tools.
 RUN composer --working-dir="/home/jenkins/composer" -n require phing/phing:2.* notfloran/phing-composer-security-checker:~1.0 \
     phploc/phploc:* phpunit/phpunit:~4.0 pdepend/pdepend:~2.0 phpmd/phpmd:~2.2 sebastian/phpcpd:* \
     squizlabs/php_codesniffer:* mayflower/php-codebrowser:~1.1 codeception/codeception:* \
-    drupal/coder:^8.2.11 dealerdirect/phpcodesniffer-composer-installer --prefer-source --no-interaction;
+    drupal/coder:^8.2.11 dealerdirect/phpcodesniffer-composer-installer \
+    wp-coding-standards/wpcs:dev-master --prefer-source --no-interaction;
 
-# add drupal coder to phpcs
-RUN  /home/jenkins/composer/vendor/bin/phpcs --config-set installed_paths /home/jenkins/composer/vendor/drupal/coder/coder_sniffer
+RUN home/jenkins/composer/vendor/bin/phpcs --config-set installed_paths /home/jenkins/composer/vendor/drupal/coder/coder_sniffer,/home/jenkins/composer/vendor/wp-coding-standards/wpcs
 
 # Change to root for symlinks.
 USER root
@@ -45,9 +45,3 @@ RUN   ln -s /home/jenkins/composer/vendor/bin/pdepend /usr/local/bin/pdepend; \
 
 # Go back to jenkins user.
 USER jenkins
-
-RUN /usr/local/bin/install-plugins.sh slack junit
-
-RUN composer --working-dir="/home/jenkins/composer" require wp-coding-standards/wpcs:dev-master
-
-RUN phpcs --config-set installed_paths /home/jenkins/composer/vendor/drupal/coder/coder_sniffer,installed_paths /home/jenkins/composer/vendor/wp-coding-standards/wpcs
