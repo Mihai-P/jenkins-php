@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:lts
+FROM jenkins/jenkins:2.73.1
 # if we want to install via apt
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
