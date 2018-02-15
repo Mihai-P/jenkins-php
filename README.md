@@ -1,6 +1,5 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/michaelpporter/jenkins-php.svg)](https://hub.docker.com/r/michaelpporter/jenkins-php)
 [![Docker Stars](https://img.shields.io/docker/stars/michaelpporter/jenkins-php.svg)](https://hub.docker.com/r/michaelpporter/jenkins-php)
-[![Docker Layers](https://images.microbadger.com/badges/image/michaelpporter/jenkins-php.svg)](https://microbadger.com/images/michaelpporter/jenkins-php)
 
 # Jenkins PHP
 
