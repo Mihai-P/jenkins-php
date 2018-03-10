@@ -3,7 +3,7 @@
 
 # Jenkins PHP
 
-PHP 7 testing based on the official Jenkins Docker image [jenkins/jenkins:lts](https://hub.docker.com/r/jenkins/jenkins/)
+PHP 7 testing based on the official Jenkins Docker image [jenkins/jenkins:2.110](https://hub.docker.com/r/jenkins/jenkins/)
 
 This is a Durpal/php test suite for building jobs in Jenkins.
 
