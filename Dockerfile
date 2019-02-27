@@ -1,4 +1,4 @@
-FROM jenkins/jenkins:2.155
+FROM jenkins/jenkins:lts
 # if we want to install via apt
 USER root
 RUN apt-get update && apt-get install -y --no-install-recommends apt-utils
@@ -27,10 +27,7 @@ RUN /usr/local/bin/install-plugins.sh git-client scm-api git bitbucket publish-o
 RUN composer --working-dir="/home/jenkins/composer" -n require phing/phing:2.* notfloran/phing-composer-security-checker:~1.0 \
     phploc/phploc:* phpunit/phpunit:~4.0 pdepend/pdepend:~2.0 phpmd/phpmd:~2.2 sebastian/phpcpd:* \
     squizlabs/php_codesniffer:* mayflower/php-codebrowser:~1.1 codeception/codeception:* \
-    drupal/coder:^8.2.11 dealerdirect/phpcodesniffer-composer-installer \
-    wp-coding-standards/wpcs:dev-master --prefer-source --no-interaction;
-
-RUN home/jenkins/composer/vendor/bin/phpcs --config-set installed_paths /home/jenkins/composer/vendor/drupal/coder/coder_sniffer,/home/jenkins/composer/vendor/wp-coding-standards/wpcs
+    --prefer-source --no-interaction;
 
 # Change to root for symlinks.
 USER root
